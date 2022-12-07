@@ -38,14 +38,14 @@ int main() {
 		c = (a + b) / 2;
 		cout << fixed << setprecision(5) << n << "\t" << a << "\t   " << b << "\t " << c << endl;
 
-		if ((f(a) * f(c)) > 0)
+		if ((f(a) * f(c)) < 0)
 		{
-			a = c; /// тут была ошибка в учебнике => бесконечный цикл
+			b = c;
 		}
 		else
-			if ((f(b) * f(c)) > 0)
+			if ((f(b) * f(c)) < 0)
 			{
-				b = c;
+				a = c;
 			}
 			else {
 				if (f(c) == 0)
