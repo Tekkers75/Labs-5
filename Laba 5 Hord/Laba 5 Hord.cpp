@@ -31,20 +31,21 @@ int main() {
 	cout << "Enter the right end of the interval " << endl;
 	cin >> b;
 	double c = (a * f(b) - b * f(a)) / (f(b) - f(a));	// Середина интервала
+	double c1;
 	const double eps = 0.0001;
 	//while (abs(f(b) - f(a)) > eps) 
 	do {
-		n++;
+		//n++;
 		//c = (a * f(b) - b * f(a)) / (f(b) - f(a));
-		cout << fixed << setprecision(15) << n << "\t" << a << "\t   " << b << "\t " << c << endl;
-		if ((f(a) * f(c)) > 0)
+		cout << fixed << setprecision(5) << n << "\t" << a << "\t   " << b << "\t " << c << endl;
+		if ((f(a) * f(c)) < 0)
 		{
-			a = c;
+			b = c;
 		}
 		else {
-			if ((f(b) * f(c)) > 0)
+			if ((f(b) * f(c)) < 0)
 			{
-				b = c;
+				a = c;
 
 			}
 			else {
@@ -54,10 +55,11 @@ int main() {
 				}
 			}
 		}
-	double c1 = c;
+	 c1 = c;
 	c = (a * f(b) - b * f(a)) / (f(b) - f(a));
+	n++;
 
-	} while (abs(f(b) - f(a)) > eps);
+	} while (abs((c) - (c1)) > eps);
 	
 	return 0;
 }
